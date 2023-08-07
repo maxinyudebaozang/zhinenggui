@@ -1,0 +1,23 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "admin",
+      "email": "admin@qq.com",
+      "password": "admin"
+    },
+    {
+      "id": 2,
+      "name": "小明",
+      "email": "xiaoming@qq.com",
+      "password": "xiaoming"
+    },
+    {
+      "id": 3,
+      "name": "大强",
+      "email": "daqiang@qq.com",
+      "password": "daqiang"
+    }
+  ],
+  "goods": []
+}
