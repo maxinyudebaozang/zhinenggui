@@ -1,12 +1,16 @@
 import React from 'react';
 import { Suspense } from "react";
-import { Layout, Menu, FloatButton } from "antd";
+import { Layout, FloatButton } from "antd";
 import { Outlet, Link } from "react-router-dom";
+import {  Avatar, Dropdown, Menu, Breadcrumb } from 'antd';
+import { useNavigate,  useLocation } from "react-router-dom";
 import Loading from '../Loading/loading';
 import type { MenuProps } from 'antd';
 // import { WalletTwoTone, HomeTwoTone, CrownTwoTone, DatabaseTwoTone, PropertySafetyTwoTone, AppstoreTwoTone, UnorderedListOutlined } from '@ant-design/icons';
 import { permissionRoutes } from "../router";
 import { FileTextOutlined } from '@ant-design/icons';
+import users from '../stores/users';
+import { DownOutlined, } from '@ant-design/icons';
 
 
 type MenuItem = Required<MenuProps>['items'][number];
@@ -18,7 +22,15 @@ const { Header, Sider, Content } = Layout;
 // 公共的头和侧边栏
 
 const LayoutView = () => {
-
+    const navigate = useNavigate()
+    const location = useLocation()
+    // console.log(location.pathname)
+    //退出登录，需要清空token和状态管理
+    const handleLogout = () => {
+        users.clearInfo()
+        navigate('/login')
+    }
+    const name = ('name' in users.info && users.info.name) as string
 
 
     const siderStyle: React.CSSProperties = {
@@ -148,13 +160,58 @@ const LayoutView = () => {
     }
     )
 
+    const items: MenuProps['items'] = [
+        {
+            key: '1',
+            label: (
+                <a rel="noopener noreferrer"   >
+                    个人中心
+                </a>
+            ),
+        },
+        {
+            key: '2',
+            label: (
+                <a rel="noopener noreferrer" onClick={handleLogout}>
+                    退出登录
+                </a>
+            )
+        }
+    ]
+
+    const ret = location.pathname.match(/^(\/[a-z]+)\/([a-z]+)/)
+    const openKeys = ret ? ret[1] : ''
+    const selectedKeys = ret ? ret[2] : ''
+    // console.log(location)
+    const breadItems: { title: React.ReactNode }[] = []
+    permissionRoutes.forEach((item) => {
+        if (item.path === openKeys) {
+            breadItems.push({
+                title: item.meta?.menu?.label
+            })
+            if (item.children) {
+                item.children.forEach((child) => {
+                    if (child.path === selectedKeys) {
+                        breadItems.push({
+                            title: child.meta?.menu?.label
+                        })
+                    }
+                })
+            }
+        }
+    })
     return (
         <Layout>
             <Header className="bg-slate-200 flex justify-between items-center space-x-3 ">
-                <h2 className=" text-black p-3 text-center bg-white">智能柜系统</h2>
-                <div>
-                    <h4 className="p-3 bg-white">info</h4>
-                </div>
+                <Avatar style={{ backgroundColor: '#f56a00', verticalAlign: 'middle' }} size="large">
+                    {name.slice(0, 5).toUpperCase()}
+                </Avatar>
+                <Dropdown menu={{ items }} placement="bottom" arrow>
+                    <span className="cursor-pointer">
+                        {name}
+                        <DownOutlined />
+                    </span>
+                </Dropdown>
             </Header>
             <Layout>
                 <Sider className="h-screen" style={siderStyle} >
@@ -168,6 +225,7 @@ const LayoutView = () => {
 
                 </Sider>
                 <Content className="bg-zinc-50">
+                    <Breadcrumb className="p-4" items={breadItems} />
                     <div className="bg-white h-full p-4">
                         <Suspense fallback={<Loading />}>
                             <Outlet />

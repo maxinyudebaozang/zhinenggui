@@ -2,16 +2,16 @@ import myImage from '../../assets/u491.svg'
 import myImage1 from '../../assets/u493.svg'
 import { useRequest } from 'ahooks'
 import {
-    Modal, Radio, Table, Tag, Button, Popconfirm, message, Space, Input, Form, Select
+     Table, Input,
 } from 'antd'
 import type { ColumnsType } from 'antd/es/table'
 import type { CheckItem } from '../../types/base'
-import { PlusCircleFilled, MinusOutlined } from '@ant-design/icons'
+
 import { addPay } from '../../api/checks'
 
 
 const PayList = () => {
-    const { data, error, loading, refresh } = useRequest(addPay)
+    const { data, error, loading } = useRequest(addPay)
 
 
 

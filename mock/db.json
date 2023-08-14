@@ -1043,7 +1043,54 @@
     "chuangjiantime": "2023-01-14 16:48:16",
     "wanchengtime": "2023-01-14 16:50:06",
     "zhuangtai": "充值中"
-  }
+  }],
+  "packages": [
+    {
+      "id": 1,
+      "box": 111,
+      "paijianren": "张三",
+      "paitel": "138421312755",
+      "shoujianren": "李四",
+      "shoutel": "13348952001",
+      "state": "已取件"
+    },
+    {
+      "id": 2,
+      "box": 222,
+      "paijianren": "老王",
+      "paitel": "13843440755",
+      "shoujianren": "老李",
+      "shoutel": "13348952001",
+      "state": "待取件"
+    },
+    {
+      "id": 3,
+      "box": 333,
+      "paijianren": "老六",
+      "paitel": "13849841755",
+      "shoujianren": "王五",
+      "shoutel": "13348952001",
+      "state": "待取件"
+    },
+    {
+      "box": "555",
+      "paijianren": "老六",
+      "paitel": "13849840755",
+      "shoujianren": "小马",
+      "shoutel": "13849840755",
+      "state": "待取件",
+      "id": 4
+    },
+    {
+      "box": "123",
+      "paijianren": "老马",
+      "paitel": "13849840755",
+      "shoujianren": "小马",
+      "shoutel": "13849840755",
+      "state": "待取件",
+      "id": 5
+    }
   ]
 }
+
 
