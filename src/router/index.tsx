@@ -4,7 +4,6 @@ import { lazy } from 'react' //路由懒加载
 import { WalletTwoTone, HomeTwoTone, CrownTwoTone, DatabaseTwoTone, PropertySafetyTwoTone, AppstoreTwoTone, UnorderedListOutlined } from '@ant-design/icons';
 
 
-
 //react不像vue，它没有meta元信息，
 //需要自己在声明文件 RouteObject(ctrl+单击查看) 中的 IndexRouteObject接口 和 NonIndexRouteObject接口 中扩展meta信息
 declare module 'react-router-dom' {
@@ -28,6 +27,8 @@ declare module 'react-router-dom' {
     }
 }
 
+
+
 //懒加载路由
 const LayoutView = lazy(() => import('../Layout/Layout'))
 const Login = lazy(() => import('../views/Login/Login'))
@@ -41,6 +42,7 @@ const PayList = lazy(() => import('../views/PayList/PayList'))
 const RechargeList = lazy(() => import('../views/RechargeList/RechargeList'))
 const Athuorityme = lazy(() => import('../views/Athuorityme/Athuorityme'))
 const Account = lazy(() => import('../views/Account/Account'))
+import Test from '../views/Test';
 
 
 
@@ -58,7 +60,10 @@ const routes: RouteObject[] = [
         path: '/login',
         element: <Login />
     },
-
+    {
+        path: '/test',
+        element: <Test />
+    }
 
 ]
 //权限路由

@@ -16,8 +16,31 @@ async function usersData() {
     return res.data;
 }
 
+// ----------------------------------------------------
+//获取包裹信息
+async function packagedata() {
+    const res = await http.get("/packages");
+    return res.data;
+}
+
+//添加包裹信息
+function addPackage(data: any) {
+    return http.post(`/packages`, data); //
+}
+
+//更新包裹信息
+function updatePackage(id: number, data: any) {
+    return http.patch(`/packages/${id}`, data); //这边只需要局部更新就行了，所以用patch
+}
+
+//删除包裹信息
+function deletePackage(id: number) {
+    return http.delete(`/packages/${id}`);
+}
+// ----------------------------------------------------
+
 //admin删除用户信息的接口
-function deleteUser(id: number) {
+function deleteUser(id: number) { 
     return http.delete(`/users/${id}`);
 }
 
@@ -28,7 +51,7 @@ function updateUser(id: number, data: AnyProps) {
 
 //admin添加用户信息的接口
 function addUser(data: AnyProps) {
-  return http.post('/users', data)
+    return http.post('/users', data)
 }
 
 export {
@@ -36,5 +59,9 @@ export {
     usersData,
     deleteUser,
     updateUser,
-    addUser
+    addUser,
+    packagedata,
+    updatePackage,
+    addPackage,
+    deletePackage
 };
