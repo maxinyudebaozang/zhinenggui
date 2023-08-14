@@ -19,7 +19,10 @@
     "echarts": "^5.4.3",
     "json-server": "^0.17.3",
     "jsonwebtoken": "^9.0.1",
+<<<<<<< HEAD
     "lodash": "^4.17.21",
+=======
+>>>>>>> c98cada6b9ae707e40e366a952027767aad006ec
     "jwt-decode": "^3.1.2",
     "mobx": "^6.10.0",
     "mobx-persist-store": "^1.1.3",

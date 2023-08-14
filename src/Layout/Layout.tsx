@@ -1,9 +1,7 @@
 import React from 'react';
 import { Suspense } from "react";
-import { Layout, FloatButton } from "antd";
-import { Outlet, Link } from "react-router-dom";
-import {  Avatar, Dropdown, Menu, Breadcrumb } from 'antd';
-import { useNavigate,  useLocation } from "react-router-dom";
+import { Layout, Avatar, Dropdown, Menu, Breadcrumb, FloatButton} from 'antd';
+import { Outlet, useNavigate, Link, useLocation  } from "react-router-dom";
 import Loading from '../Loading/loading';
 import type { MenuProps } from 'antd';
 // import { WalletTwoTone, HomeTwoTone, CrownTwoTone, DatabaseTwoTone, PropertySafetyTwoTone, AppstoreTwoTone, UnorderedListOutlined } from '@ant-design/icons';

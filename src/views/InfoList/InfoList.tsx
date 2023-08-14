@@ -3,23 +3,22 @@ import myImage1 from '../../assets/u493.svg'
 import { useRequest } from 'ahooks'
 import './infoList.css'
 import {
-    Modal, Radio, Table, Tag, Button, Popconfirm, message, Space, Input, Form, Select
+    Modal, Table,  Button, Popconfirm, message, Space, Input, Form, Select
 } from 'antd'
 import type { ColumnsType } from 'antd/es/table'
 import type { CheckItem } from '../../types/base'
 import { addCheck, addUser, deleteUser } from '../../api/checks'
-import { debounce, forEach, values } from 'lodash'
+import { debounce } from 'lodash'
 import { useState } from 'react'
-import { PlusCircleFilled, MinusOutlined } from '@ant-design/icons'
+import { PlusCircleFilled} from '@ant-design/icons'
 
 
 const InfoList = () => {
     const [isModalOpen, setIsModalOpen] = useState(false)
-    const [isModalOpen1, setIsModalOpen1] = useState(false)
     const { data, error, loading, refresh } = useRequest(addCheck)
-    const [form] = Form.useForm()
+    // const [form] = Form.useForm()
     const [form2] = Form.useForm()
-    const [open, setOpen] = useState(false)
+    // const [open, setOpen] = useState(false)
 
 
     const confirm = (id: any) => {
@@ -38,10 +37,10 @@ const InfoList = () => {
     }
 
     const cancel = () => { }
-    const onOpen = (name: string, role: string, id: number) => {
-        setOpen(true)
-        form.setFieldsValue({ name, role, id })
-    }
+    // const onOpen = (name: string, role: string, id: number) => {
+    //     setOpen(true)
+    //     form.setFieldsValue({ name, role, id })
+    // }
     const columns: ColumnsType<CheckItem> = [
         {
             title: 'ID',
