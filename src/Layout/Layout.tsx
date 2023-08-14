@@ -1,11 +1,12 @@
 import React from 'react';
 import { Suspense } from "react";
-import { Layout, Menu } from "antd";
+import { Layout, Menu, FloatButton } from "antd";
 import { Outlet, Link } from "react-router-dom";
 import Loading from '../Loading/loading';
 import type { MenuProps } from 'antd';
 // import { WalletTwoTone, HomeTwoTone, CrownTwoTone, DatabaseTwoTone, PropertySafetyTwoTone, AppstoreTwoTone, UnorderedListOutlined } from '@ant-design/icons';
 import { permissionRoutes } from "../router";
+import { FileTextOutlined } from '@ant-design/icons';
 
 
 type MenuItem = Required<MenuProps>['items'][number];
@@ -174,7 +175,16 @@ const LayoutView = () => {
                     </div>
                 </Content>
             </Layout>
+            <FloatButton
+                icon={<FileTextOutlined />}
+                description="我是使用说明书"
+                // shape="square"
+                style={{ right: 44, width: 80, height: 80 }}
+            // onClick={zhankai}
+               // trigger={onclick}
+            />
         </Layout>
+
     )
 }
 
